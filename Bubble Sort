@@ -1,11 +1,12 @@
 from random import randint 
 
-def geralista(tamanho, vMin=0, vMax=20):
+def geralista(tamanho, vMin=0, vMax=10):
     L = []
     for i in range(tamanho):
         n = randint(vMin, vMax)
-        if n not in L:
-            L.append(n)
+        while n in L:
+            n = randint(vMin, vMax)
+        L.append(n)
     return L
     
 def bubbleSort(Lista):
