@@ -1,0 +1,21 @@
+"""
+Crie uma função que possa receber qualquer número inteiro não negativo como argumento e retorná-lo com seus dígitos em ordem decrescente. Essencialmente, reorganize os dígitos para criar o número mais alto possível.
+"""
+def ordem_decrescente(num):
+    # Define uma função chamada descending_order que recebe um número inteiro 'num' como entrada.
+    num_txt = str(num)  # Converte o número inteiro 'num' em uma string e armazena em 'num_txt'.
+    L = []  # Inicializa uma lista vazia chamada 'L'.
+    for n in str(num):
+        # Itera por cada caractere na representação em string de 'num'.
+        L.append(int(n))  # Converte cada caractere para um inteiro e o adiciona à lista 'L'.
+
+    lista_ordenada = sorted(L, reverse=True)
+    # Ordena a lista 'L' em ordem decrescente e armazena o resultado em 'lista_ordenada'.
+
+    num_txt2 = ""  # Inicializa uma string vazia chamada 'num_txt2'.
+    for n in lista_ordenada:
+        # Itera por cada elemento na lista ordenada 'lista_ordenada'.
+        num_txt2 += f"{n}"  # Concatena cada elemento à string 'num_txt2'.
+
+    num2 = int(num_txt2)  # Converte a string 'num_txt2' de volta para um inteiro e armazena em 'num2'.
+    return num2  # Retorna o inteiro 'num2' como resultado da função.
