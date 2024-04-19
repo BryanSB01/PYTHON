@@ -1,0 +1,36 @@
+import pandas as pd
+from IPython.display import display
+
+# Criando a tabela DataFrame com Pandas:
+
+grupo = {"Grupo 1":["Luciano", "Carlos", "Vitor", "Carolina", "Joana", "Luara"], "Grupo 2":["Daniela", "Gabriel", "Matheus", "Noelia", "Sara", "Laura"]} # Cria um dicionário denominado grupo;
+
+df = pd.DataFrame(grupo, columns=['Grupo 1','Grupo 2']) # Cria um DataFrame a partir do dicionário grupo e especifica as colunas com base nas listas contidas nele; 
+
+display(df)
+
+# Adicionando uma nova coluna à tabela df:
+
+grupo3 = ["Milton", "Leandro", "Ciro", "Carla", "Joelma", "Lúcio"] #Cria uma lista denominada grupo3;
+
+df["Grupo 3"] = grupo3 #Adiciona ao data frame df uma terceira coluna chamada Grupo 3 com os valores da lista grupo3;
+
+display(df)
+
+# Removendo uma coluna da tabela df:
+
+df = df.drop(["Grupo 1"],axis='columns') #Remove a coluna Grupo 1 da tabela df;
+
+display(df)
+
+df = df.concat(["Rodrigo", "Tassele", "Junior"])
+display(df)
+
+#Removendo uma linha da tabela df:
+
+df = df.drop(2,axis='index') # Remove a linha 2 da tabela df;
+
+display(df)
+
+df = df.rename(columns={"Grupo 2":"Grupo Azul"})
+display(df)
