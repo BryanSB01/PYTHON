@@ -1,0 +1,13 @@
+from pandas import pandas as pd
+import numpy as np
+from IPython.display import display
+
+# A variável "vendas" recebe a tabela do arquivo "Vendas.xlsx" e a transforma em um DataFrame;
+vendas = pd.read_excel("Vendas.xlsx")
+# A coluna "Valor Final" que antes estava vazia recebe o resultado da multiplicação da coluna "Quantidade" pela coluna "Valor Unitário";
+vendas["Valor Final"] = vendas["Valor Final"].fillna(vendas["Quantidade"] * vendas["Valor Unitário"])
+# É criada uma coluna chamada "Commissão" que possui todas as suas linhas com o valor Nan. 
+vendas["Comissão"] = np.nan
+# Os valores Nan são substituidos pelo resultado da multiplicação da coluna "Valor Final" por 0.20, que representa 20% de comissão em cima do valor final obtido. 
+vendas["Comissão"] = vendas["Comissão"].fillna(vendas["Valor Final"] * 0.20)
+display(vendas)
